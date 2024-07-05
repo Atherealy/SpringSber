@@ -17,6 +17,7 @@
 
     <packaging>pom</packaging>
     <modules>
+        <module>springContext-2</module>
     </modules>
 
     <dependencies>
