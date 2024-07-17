@@ -17,7 +17,6 @@
 
     <packaging>pom</packaging>
     <modules>
-        <module>springContext-1</module>
     </modules>
 
     <dependencies>
@@ -38,5 +37,5 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
-
+    
 </project>
