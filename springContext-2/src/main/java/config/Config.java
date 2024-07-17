@@ -3,8 +3,10 @@ package config;
 import exercise.Parrot;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "exercise")
 public class Config {
     @Bean(name = "Vasiy")
     public Parrot getParrot1(){
