@@ -1,8 +1,5 @@
 package service;
 
-import org.springframework.stereotype.Service;
-
-@Service
 public interface CartService {
 
     boolean addToCartById(long userId, long productId);
