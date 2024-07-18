@@ -15,7 +15,7 @@ public class NotEmptyAspect {
         Object[] arguments = joinPoint.getArgs();
 
         if (arguments.length == 0){
-
+            return;
         }
         for (Object argument : arguments){
             if (argument == null) {

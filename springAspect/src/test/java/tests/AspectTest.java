@@ -1,6 +1,8 @@
-package testAspect;
+package tests;
 
-import methods.Methods;
+import application.Methods;
+import config.ProjectConfig;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,9 +13,11 @@ import org.springframework.test.context.junit.jupiter.SpringExtension;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
-@ContextConfiguration(classes = {Methods.class})
+import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
+
 @ExtendWith(SpringExtension.class)
-public class aspectTest {
+@ContextConfiguration(classes = {ProjectConfig.class})
+public class AspectTest {
 
     @Autowired
     private Methods methods;
@@ -43,14 +47,14 @@ public class aspectTest {
         assertDoesNotThrow(() -> methods.collectionWithString(List.of("arcane pudge"), "arcane juggernaut"));
     }
     @Test
-    public void testAllThrow(){
-        assertDoesNotThrow(() -> methods.withString(null));
-        assertDoesNotThrow(() -> methods.withString(""));
-        assertDoesNotThrow(() -> methods.stringCollection(null));
-        assertDoesNotThrow(() -> methods.stringCollection(List.of()));
-        assertDoesNotThrow(() -> methods.collectionWithString(List.of(), null));
-        assertDoesNotThrow(() -> methods.collectionWithString(List.of(), "arcane juggernaut"));
-        assertDoesNotThrow(() -> methods.collectionWithString(List.of("arcane pudge"), null));
-        assertDoesNotThrow(() -> methods.collectionWithString(List.of("arcane pudge"), ""));
+    public void testAllThrow() {
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.withString(null));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.withString(""));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.stringCollection(null));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.stringCollection(List.of()));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.collectionWithString(List.of(), null));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.collectionWithString(List.of(), "Hello Spring!"));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.collectionWithString(List.of("Hello Spring!"), null));
+        assertThrowsExactly(IllegalArgumentException.class, () -> methods.collectionWithString(List.of("Hello Spring!"), ""));
     }
 }

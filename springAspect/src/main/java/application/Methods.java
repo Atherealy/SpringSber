@@ -1,15 +1,17 @@
-package methods;
+package application;
 
-import annotation.NotEmpty;
+import aspect.NotEmpty;
+import org.springframework.stereotype.Component;
 
 import java.util.Collection;
 
+@Component
 public class Methods {
     @NotEmpty
     public void noArguments(){
 
     }
-    @NotEmpty
+
     public void noAnnotation(String string){
 
     }
