@@ -1,9 +1,12 @@
 package repository;
 
+import model.Client;
+import model.Product;
+
 public interface CartRepository {
 
-    boolean addToCartById(long userId, long productId);
+    boolean addProductToCart(Client client, Product product);
 
-    boolean deleteFromCartById(long userId, long productId);
+    boolean deleteFromCart(Client client, long productId);
 
 }

@@ -28,7 +28,7 @@ public class CartController {
     }
 
     @DeleteMapping("/{userId}/{productId}")
-    public ResponseEntity<Void> deleteProductFromCart(@PathVariable("userId") long userId, @PathVariable("productId") long productId) {
+    public ResponseEntity<Void> deleteFromCart(@PathVariable("userId") long userId, @PathVariable("productId") long productId) {
         log.info("Удаление продукта {} из корзины пользователя {}", productId, userId);
 
         return cartService.deleteFromCartById(userId, productId)
