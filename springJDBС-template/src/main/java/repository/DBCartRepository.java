@@ -17,10 +17,6 @@ import java.sql.Statement;
 @AllArgsConstructor
 public class DBCartRepository implements CartRepository {
 
-    private final ProductRepository productRepository;
-
-    private final ClientRepository clientRepository;
-
     private final JdbcTemplate jdbcTemplate;
 
     @Override
